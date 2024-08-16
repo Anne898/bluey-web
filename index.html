@@ -24,25 +24,24 @@
 <script>
   // Configuración del confeti al cargar la página
         window.onload = function() {
-            const duration = 5 * 1000; // Duración total de la animación
-            const end = Date.now() + duration;
-            const colors = ['#a486ec', '#ff69b4', '#87ceeb']; // Morado, Rosa, Azul
+            // Colores personalizados: morado, rosa y azul
+            const colors = ['#8e44ad', '#ff69b4', '#3498db'];
 
+            // Configurar para que el confeti caiga continuamente desde la parte superior
             (function frame() {
                 confetti({
-                    particleCount: 2, // Número reducido de partículas
-                    startVelocity: 30,
-                    ticks: 60,
-                    spread: 70,
-                    origin: { y: 0.1 }, // Confeti cae desde la parte superior
-                    colors: colors,
-                    shapes: ['circle', 'square'], // Formas variadas
-                    gravity: 1.2 // Velocidad de caída
+                    particleCount: 2,
+                    startVelocity: 0,
+                    ticks: 200,
+                    spread: 360,
+                    origin: {
+                        x: Math.random(),
+                        y: 0 // Empezar desde la parte superior
+                    },
+                    colors: colors
                 });
 
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
+                requestAnimationFrame(frame);
             }());
         };
 </script>
