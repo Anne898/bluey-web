@@ -22,15 +22,15 @@
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-  // Configuración del confeti al cargar la página
+      // Configuración del confeti al cargar la página
         window.onload = function() {
             // Colores personalizados: morado, rosa y azul
             const colors = ['#8e44ad', '#ff69b4', '#3498db'];
 
-            // Configurar para que el confeti caiga continuamente desde la parte superior
+            // Configurar para que el confeti caiga continuamente desde la parte superior, pero más espaciado
             (function frame() {
                 confetti({
-                    particleCount: 2,
+                    particleCount: 1, // Se reduce a 1 partícula por disparo para menos confeti
                     startVelocity: 0,
                     ticks: 200,
                     spread: 360,
@@ -38,10 +38,14 @@
                         x: Math.random(),
                         y: 0 // Empezar desde la parte superior
                     },
-                    colors: colors
+                    colors: colors,
+                    scalar: 1.5 // Tamaño un poco más grande para que sean más visibles cuando están más separados
                 });
 
-                requestAnimationFrame(frame);
+                // Se aumenta el tiempo entre cada frame para más separación
+                setTimeout(() => {
+                    requestAnimationFrame(frame);
+                }, 300); // Disparar cada 300ms para más separación
             }());
         };
 </script>
