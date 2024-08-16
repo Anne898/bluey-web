@@ -22,15 +22,16 @@
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-      // Configuración del confeti al cargar la página
+           // Configuración del confeti al cargar la página
         window.onload = function() {
             // Colores personalizados: morado, rosa y azul
-            const colors = ['#8e44ad', '#ff69b4', '#3498db'];
+            const purplePinkColors = ['#8e44ad', '#ff69b4'];
+            const blueColor = ['#3498db'];
 
-            // Configurar para que el confeti caiga continuamente desde la parte superior, pero más espaciado
-            (function frame() {
+            // Configurar confeti morado y rosa
+            (function framePurplePink() {
                 confetti({
-                    particleCount: 2, // Se reduce a 1 partícula por disparo para menos confeti
+                    particleCount: 1,
                     startVelocity: 0,
                     ticks: 200,
                     spread: 360,
@@ -38,16 +39,36 @@
                         x: Math.random(),
                         y: 0 // Empezar desde la parte superior
                     },
-                    colors: colors,
-                    scalar: 1 // Tamaño un poco más grande para que sean más visibles cuando están más separados
+                    colors: purplePinkColors,
+                    scalar: 1.5
                 });
 
-                // Se aumenta el tiempo entre cada frame para más separación
                 setTimeout(() => {
-                    requestAnimationFrame(frame);
-                }, 300); // Disparar cada 300ms para más separación
+                    requestAnimationFrame(framePurplePink);
+                }, 600); // Intervalo más largo para separar el confeti rosa y morado
+            }());
+
+            // Configurar confeti azul
+            (function frameBlue() {
+                confetti({
+                    particleCount: 1,
+                    startVelocity: 0,
+                    ticks: 200,
+                    spread: 360,
+                    origin: {
+                        x: Math.random(),
+                        y: 0 // Empezar desde la parte superior
+                    },
+                    colors: blueColor,
+                    scalar: 1.5
+                });
+
+                setTimeout(() => {
+                    requestAnimationFrame(frameBlue);
+                }, 600); // Intervalo para separar el confeti azul
             }());
         };
+	
 </script>
 
     <script type="application/ld+json">{
