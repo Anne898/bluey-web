@@ -35,6 +35,15 @@
     <meta property="og:description" content="¡Vamos a celebrar!">
     <meta property="og:image" itemprop="image" content="https://invitacion-camila.netlify.app/images/miniatura.png"><meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="es">
+
+
+	   <div class="video-container">
+        <video autoplay muted loop class="video-background">
+            <source src="images/cumple.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+
+		   
     <section class="u-align-center u-clearfix u-image u-section-1" src="" data-image-width="1080" data-image-height="8000" id="sec-f8c3">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-countdown u-countdown-1" data-timer-id="fbb1" data-type="to-date" data-target-date="Sun, 24 Nov 2024 20:00:54 GMT" data-for="everyone" data-direction="down" data-time-left="750m" data-target-number="100" data-start-time="Fri Feb 23 2024 00:33:00 GMT-0600 (Hora estándar central (México))" data-frequency="1s" data-after-count="none" data-redirect-url="https://">
@@ -79,6 +88,8 @@
         </a>
       </div>
     </section>
+
+		    </div>
 
 	   </script>
           <div id="boton" class="icon-social">
@@ -127,11 +138,26 @@ function MusicaFondo() {
 } </style>
 
 
-	   <video autoplay muted loop class="video-background">
-        <source src="cumple.mp4" type="video/mp4">
-        Tu navegador no soporta videos HTML5.
-    </video>
-    
+	  <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Evita el scroll horizontal */
+        }
+
+        .video-container {
+            width: 100vw; /* Ancho completo de la pantalla */
+            height: auto; /* Altura ajustada automáticamente */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-background {
+            width: 100%; /* Ancho completo del contenedor */
+            height: auto; /* Mantiene la relación de aspecto del video */
+            position: relative;
+        }
     
     
     
