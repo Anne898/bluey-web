@@ -22,34 +22,29 @@
     
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
-    window.onload = function() {
-        // Configuración del confeti
-        const end = Date.now() + 5 * 1000; // Duración de 5 segundos
+  // Configuración del confeti al cargar la página
+        window.onload = function() {
+            const duration = 5 * 1000; // Duración total de la animación
+            const end = Date.now() + duration;
+            const colors = ['#a486ec', '#ff69b4', '#87ceeb']; // Morado, Rosa, Azul
 
-        // Colores del confeti
-        const colors = ['#bb0000', '#ffffff', '#00bb00', '#0000bb'];
+            (function frame() {
+                confetti({
+                    particleCount: 2, // Número reducido de partículas
+                    startVelocity: 30,
+                    ticks: 60,
+                    spread: 70,
+                    origin: { y: 0.1 }, // Confeti cae desde la parte superior
+                    colors: colors,
+                    shapes: ['circle', 'square'], // Formas variadas
+                    gravity: 1.2 // Velocidad de caída
+                });
 
-        (function frame() {
-            confetti({
-                particleCount: 3,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0 },
-                colors: colors
-            });
-            confetti({
-                particleCount: 3,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1 },
-                colors: colors
-            });
-
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        }());
-    };
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        };
 </script>
 
     <script type="application/ld+json">{
